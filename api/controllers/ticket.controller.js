@@ -16,7 +16,7 @@ const getTickets = async (req, res) => {
     };
     res.status(200).json(response);
   } catch (error) {
-    return res.stauts(500).json(error);
+    return res.status(500).json(error);
   }
 };
 const getIncomes = async (req, res) => {
@@ -67,7 +67,8 @@ const getOneTicket = async (req, res) => {
 
 const createTicket = async (req, res) => {
   try {
-    const { title, date, type, category, id } = req.body;
+    const { id } = req.params;
+    const { title, date, type, category } = req.body;
     let cash = req.body.cash === null ? 0 : req.body.cash;
     const ticket = await Ticket.create({
       user_id: id,

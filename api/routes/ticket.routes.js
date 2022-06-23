@@ -13,7 +13,7 @@ router.get("/", getTickets);
 router.get("/egress", getEgress);
 router.get("/incomes", getIncomes);
 router.get("/:ticketId", getOneTicket);
-router.post("/", createTicket);
+router.post("/:id", createTicket);
 router.put("/:ticketId", updateTicket);
 router.delete("/:ticketId", deleteTicket);
 
