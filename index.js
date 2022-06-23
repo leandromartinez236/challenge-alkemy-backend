@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 require("dotenv").config();
 require("./api/asociations/asociations");
 
@@ -11,8 +12,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(cors());
 
-app.use("/api/users", userRoutes);
-app.use("/api/tickets", ticketRoutes);
+app.use("/users", userRoutes);
+app.use("/tickets", ticketRoutes);
 
 app.listen(3000, () => console.log("Server running on port ", 3000));
